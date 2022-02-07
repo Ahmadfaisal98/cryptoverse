@@ -29,8 +29,7 @@ const App = () => {
         <div className="footer">
           <Typography.Title level={5} style={{ color: "white", textAlign: "center" }}>
             Copyright © 2022 by
-            <Link to="/"> Ahmad Faisal</Link> <br />
-            All Rights Reserved.
+            <Link to="/"> Ahmad Faisal</Link>
           </Typography.Title>
           <Space>
             <Link to="/">Home</Link>
