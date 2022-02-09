@@ -1,18 +1,16 @@
 import React from "react"
-import { Routes, Route, Link } from "react-router-dom"
-import { Layout, Typography, Space } from "antd"
+import { Routes, Route } from "react-router-dom"
+import { Layout } from "antd"
 
 import "antd/dist/antd.css"
-import "./App.css"
 import "./css/styles.css"
-import { Navbar, Homepage, Cryptocurrencies, CryptoDetails, News } from "./components"
+import { Homepage, Cryptocurrencies, CryptoDetails, News } from "./pages"
+import { Footer, Navbar } from "./components/organisms"
 
 const App = () => {
   return (
     <div className="app">
-      <div className="navbar">
-        <Navbar />
-      </div>
+      <Navbar />
 
       <div className="main">
         <Layout>
@@ -26,17 +24,7 @@ const App = () => {
           </div>
         </Layout>
 
-        <div className="footer">
-          <Typography.Title level={5} style={{ color: "white", textAlign: "center" }}>
-            Copyright © 2022 by
-            <Link to="/"> Ahmad Faisal</Link>
-          </Typography.Title>
-          <Space>
-            <Link to="/">Home</Link>
-            <Link to="/cryptocurrencies">Cryptocurrencies</Link>
-            <Link to="/news">News</Link>
-          </Space>
-        </div>
+        <Footer />
       </div>
     </div>
   )

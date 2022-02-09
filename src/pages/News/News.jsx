@@ -2,9 +2,9 @@ import React, { useState } from "react"
 import { Select, Typography, Row, Col, Avatar, Card } from "antd"
 import moment from "moment"
 
-import { useGetCryptoNewsQuery } from "../services/cryptoNewsApi"
-import { useGetCryptosQuery } from "../services/cryptoApi"
-import { Loader } from "."
+import { useGetCryptoNewsQuery } from "services/cryptoNewsApi"
+import { useGetCryptosQuery } from "services/cryptoApi"
+import { Loader } from "components/atoms"
 
 const { Text, Title } = Typography
 const { Option } = Select
@@ -27,7 +27,7 @@ const News = ({ simplified }) => {
         <Col span={24}>
           <Select
             showSearch
-            className="select-news"
+            className="news__select"
             placeholder="Select a Crypyo"
             optionFilterProp="children"
             onChange={(value) => setNewsCategory(value)}
@@ -44,10 +44,10 @@ const News = ({ simplified }) => {
       )}
       {crytoNews.value.map((news, i) => (
         <Col xs={24} sm={12} lg={8} key={i}>
-          <Card hoverable className="news-card">
+          <Card hoverable className="news__card">
             <a href={news.url} target="_blank" rel="noreferrer">
-              <div className="news-image-container">
-                <Title className="news-title" level={4}>
+              <div className="news__image">
+                <Title className="news__title" level={5}>
                   {news.name}
                 </Title>
                 <img
@@ -56,19 +56,17 @@ const News = ({ simplified }) => {
                   alt={news.name}
                 />
               </div>
-              <p>
+              <p className="news__text">
                 {news.description.length > 100
                   ? `${news.description.substring(0, 100)} ...`
                   : news.description}
               </p>
-              <div className="provider-container">
-                <div>
-                  <Avatar
-                    src={news.provider[0]?.image?.thumbnail?.contentUrl || demoImage}
-                    alt="news"
-                  />
-                  <Text className="provider-name">{news.provider[0]?.name}</Text>
-                </div>
+              <div className="news__provider">
+                <Avatar
+                  src={news.provider[0]?.image?.thumbnail?.contentUrl || demoImage}
+                  alt="news"
+                />
+                <Text className="news__provider-name">{news.provider[0]?.name}</Text>
                 <Text>{moment(news.datePublished).startOf("ss").fromNow()}</Text>
               </div>
             </a>

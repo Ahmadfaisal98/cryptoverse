@@ -3,7 +3,16 @@ body {
   font-weight: 400;
   /* font-size: 16px; */
   line-height: 1.7;
-  color: $color-grey;
 
   box-sizing: border-box;
+}
+
+a:hover {
+  color: $blue !important;
+}
+
+@media screen and (max-width: 500px) {
+  &__heading {
+    margin-top: 20px;
+  }
 }
